@@ -81,6 +81,7 @@
     gap:48px;
     align-items:center;
   }
+  .hero-left{display:flex; flex-direction:column;}
   .hero-logo{width:100%; max-width:520px; height:auto; margin-bottom:28px;}
   .hero-tagline{
     font-family:"Cinzel", serif;
@@ -89,7 +90,7 @@
     text-transform:uppercase;
     color:var(--parchment);
     line-height:1.9;
-    margin:0 0 22px;
+    margin:0;
   }
   .divider{
     width:120px; height:1px; background:var(--line); margin:22px 0;
@@ -109,12 +110,7 @@
   }
 
   /* ---------- DOWNLOAD ---------- */
-  .download{
-    text-align:center;
-    margin-top:90px;
-    padding-top:70px;
-    border-top:1px solid var(--line);
-  }
+  .download-block{margin:28px 0;}
   .section-title{
     font-family:"Cinzel", serif;
     font-size:26px;
@@ -127,14 +123,13 @@
   .section-title::before, .section-title::after{
     content:""; height:1px; width:46px; background:var(--line);
   }
-  .download-sub{font-style:italic; color:var(--muted); font-size:22px; margin:0 0 40px;}
-  .btn-row{display:flex; gap:22px; justify-content:center; flex-wrap:wrap;}
+  .btn-row{display:flex; gap:18px; flex-wrap:wrap;}
   .btn-download{
     display:flex; align-items:center; gap:14px;
     border:1px solid var(--gold);
     color:var(--parchment);
     text-decoration:none;
-    padding:16px 34px;
+    padding:14px 26px;
     font-family:"Cinzel", serif;
     font-size:12px;
     letter-spacing:.16em;
@@ -147,15 +142,13 @@
   .btn-download:hover{background:var(--gold); color:var(--ink);}
   .btn-download svg{flex-shrink:0;}
 
-  .file-note{margin-top:18px; font-size:14px; color:var(--muted); letter-spacing:.03em;}
-
   .weekly-note{
-    margin-top:60px;
+    margin-top:18px;
     font-family:"Cinzel", serif;
-    font-size:15px;
-    letter-spacing:.22em;
+    font-size:14px;
+    letter-spacing:.18em;
     text-transform:uppercase;
-    color:var(--muted);
+    color:var(--gold-bright);
   }
 
   /* ---------- FEATURES ---------- */
@@ -163,7 +156,7 @@
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:30px;
-    margin-top:64px;
+    margin-top:70px;
     padding-top:54px;
     border-top:1px solid var(--line);
   }
@@ -270,15 +263,18 @@
     nav.site-nav a{font-size:10.5px; letter-spacing:.14em; white-space:nowrap;}
     .hero{padding:110px 0 60px;}
     .hero-grid{grid-template-columns:1fr; text-align:center;}
-    .hero-logo{margin:0 auto 24px;}
+    .hero-left{align-items:center;}
+    .hero-logo{order:0; margin:0 auto 24px;}
+    .download-block{order:-1; margin:0 0 32px;}
+    .hero-tagline{order:1;}
     .divider{margin:22px auto;}
     .hero-sub{margin:0 auto;}
-    .cover-wrap{order:-1; margin-bottom:36px;}
+    .cover-wrap{order:-1; margin-bottom:32px;}
     .cover-wrap img{max-width:230px;}
     .badge-corner{top:20px; right:20px; font-size:9px;}
     .section-title{font-size:19px; letter-spacing:.18em;}
     .features{grid-template-columns:repeat(2,1fr); gap:34px 20px;}
-    .btn-row{flex-direction:column; align-items:center;}
+    .btn-row{flex-direction:column; align-items:center; width:100%;}
     .btn-download{width:100%; max-width:320px; justify-content:center;}
     .panel{padding:64px 0;}
     .chapters li{font-size:21px;}
@@ -308,41 +304,38 @@
 <header class="hero" id="inicio">
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="hero-left">
         <img class="hero-logo" src="assets/logo-transparente.png" alt="A História de Anthony Leopold">
+
+        <div class="download-block" id="baixar">
+          <div class="btn-row">
+            <a class="btn-download" href="https://drive.google.com/file/d/19peXiuxxs6ZGPk1ZkdaC5hY2dpnm384H/view?usp=sharing" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H12v18H5.5A1.5 1.5 0 0 1 4 19.5v-15Z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H12v18h6.5a1.5 1.5 0 0 0 1.5-1.5v-15Z"/></svg>
+              <span>
+                <strong>Baixar em EPUB</strong>
+                <small>compatível com Kindle, Kobo e apps de leitura</small>
+              </span>
+            </a>
+            <a class="btn-download" href="https://drive.google.com/file/d/1v_GkdnYpeAiFrriDIcJA9geRScWr0_rq/view?usp=sharing" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h6"/></svg>
+              <span>
+                <strong>Baixar em PDF</strong>
+                <small>leitura em qualquer computador ou celular</small>
+              </span>
+            </a>
+          </div>
+          <p class="weekly-note">Capítulo 4 disponível agora, de graça</p>
+        </div>
+
         <p class="hero-tagline">
-          Uma família poderosa.<br>
-          Segredos guardados por décadas.<br>
-          Um amor que não deveria existir.
+          Quatro dias em cativeiro.<br>
+          Uma fuga antes do amanhecer.<br>
+          Um nome que não deveria existir.
         </p>
       </div>
       <div class="cover-wrap">
         <img src="assets/capa-livro.jpg" alt="Capa do livro A História de Anthony Leopold">
       </div>
-    </div>
-
-    <div class="download" id="baixar">
-      <h2 class="section-title">Baixe Agora</h2>
-      <p class="download-sub">Leia no seu ritmo, onde quiser.</p>
-
-      <div class="btn-row">
-        <a class="btn-download" href="downloads/Cap3-Anthony-Leopold_A-historia.epub" download>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H12v18H5.5A1.5 1.5 0 0 1 4 19.5v-15Z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H12v18h6.5a1.5 1.5 0 0 0 1.5-1.5v-15Z"/></svg>
-          <span>
-            <strong>Baixar em EPUB</strong>
-            <small>compatível com Kindle, Kobo e apps de leitura</small>
-          </span>
-        </a>
-        <a class="btn-download" href="downloads/Cap3-Anthony-Leopold_A-historia.pdf" download>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h6"/></svg>
-          <span>
-            <strong>Baixar em PDF</strong>
-            <small>leitura em qualquer computador ou celular</small>
-          </span>
-        </a>
-      </div>
-
-      <p class="weekly-note">Novo capítulo toda semana</p>
     </div>
 
     <div class="features">
@@ -390,6 +383,7 @@
       <li><span class="ch-num">Capítulo 1</span><span class="ch-title">&nbsp; O Cavalo que Voltou Sozinho</span></li>
       <li><span class="ch-num">Capítulo 2</span><span class="ch-title">&nbsp; A Casa sob Suspeita</span></li>
       <li><span class="ch-num">Capítulo 3</span><span class="ch-title">&nbsp; Quem Ganha com a Ausência?</span></li>
+      <li><span class="ch-num">Capítulo 4</span><span class="ch-title">&nbsp; O Nome que Não Existia</span></li>
     </ul>
     <p class="chapters-note">O mesmo arquivo é atualizado a cada novo capítulo. Baixe sempre a versão mais recente na seção acima.</p>
   </div>
